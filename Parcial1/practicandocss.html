@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Original</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="08 - selectores.css">
+	<script src="modernizr-custom.js"></script>
+    <style>
+        .btnHover {
+            border-radius: 5px;
+            width: 8vw;
+            height: 4vh;
+        }
+
+        .btnHover:hover {
+            background-color: blue;
+        }
+        
+        .borde1 {
+            border: 5px solid black;
+            border-radius: 5px;
+            max-width: fit-content;
+            padding: 2px 10px;
+        }
+
+        .borde2 {
+            border: 2px solid black;
+            border-radius: 5px;
+            max-width: fit-content;
+            padding: 2px 10px;
+        }
+        
+        .borde3 {
+            border: 3px dotted grey;
+            border-radius: 5px;
+            max-width: fit-content;
+            padding: 2px 10px;
+        }
+
+        .grande {
+            font-size: 2em;
+        }
+
+        .azul {
+            color: blue;
+        }
+
+        p + p::after {
+            content: "   <-- p + p";
+        }
+
+        div + p::after {
+            content: "   <-- div + p";
+        }
+
+        div > p::after {
+            content: "   <-- div > p";
+        }
+
+        p#azul::after {
+            content: "   <-- p#azul";
+        }
+
+        p ~ p::after {
+            content: "   <-- p ~ p";
+        }
+
+        h2[title ~= "otro"]::after {
+            content: "   <-- h2[title ~= (comillas)otro(comillas)]";
+        }
+
+        h2[lang |= "es"]::after {
+            content: "   <-- h2[lang |= (comillas)es(comillas)]";
+        }
+
+        [title]::after {
+            content: "   <-- [title]";
+        }
+
+    </style>
+</head>
+<body>
+	<header>
+		<div>
+			<h2 title="main cabecera otro">Titulo secundario en cabecera</h2>
+		</div>
+		
+	</header>
+	<h2 lang="es-MX" class="grande">Titulo Secundario 2</h2>
+	<h2 title="otro">Titulo Secundario</h2>
+	<h2 lang="es-ES" class="borde1">Titulo Terciario</h2>
+
+    <button class="btnHover">hover</button>
+
+    <!--
+        em: Relativo al tamaño de letra del elemento padre
+        rem: Relativo al tamaño de letra del elemento raiz
+        ex: Relativo a la altura del caracter x minuscula
+    -->
+
+	<p class="borde2">Texto de prueba</p>
+	<p>Texto de prueba</p>
+	<p id="azul">Texto de prueba</p>
+	<p>Texto de prueba</p>
+	<p class="borde3">Texto de prueba</p>
+
+	<p class="prueba grande">Texto con clase</p>
+	<p class="prueba">Texto con clase</p>
+
+    <span class="azul">Lorem Ipsum</span>
+
+    <!--
+        El modelo de caja en CSS consiste en que todos los elementos de html estan envueltos en una caja
+        y cada una de estas cajas tiene 4 partes, content, padding, border y margin, en ese orden de adentro
+        hacia afuera, y este nos sirve para definir el espacio del elemento y la distancia entre los elementos.
+    -->
+
+	<div>
+
+		<article>
+			<p class="prueba grande">Texto con clase</p>
+			<p class="rojo naranja" id="grisaceo">Texto con clase</p>
+			<p class="prueba">Texto con clase</p>
+		</article>
+		
+	</div>
+	<p>Hola</p>
+</body>
+</html>
